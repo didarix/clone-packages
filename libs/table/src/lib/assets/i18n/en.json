@@ -1,0 +1,17 @@
+{
+  "MODEL": {
+    "Confirm": "Confirm",
+    "Cancel": "Cancel"
+  },
+
+  "TABLE": {
+    "PAGINATION": {
+      "showing": "Showing",
+      "off": "Off"
+    },
+    "modelHeaderText": "Delete Confirmation",
+    "actionColHeader": "Actions",
+    "modelDeleteActionName": "Delete",
+    "confirmationDeleteMsg": "Delete Confirmation"
+  }
+}

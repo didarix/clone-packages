@@ -1,0 +1,80 @@
+<div class="data-table">
+  <div *ngIf="!!urls || data?.length">
+    <youxel-programmatic-control
+      *ngIf="options.showProgrammaticControl"
+      [data]="data?.data"
+    >
+    </youxel-programmatic-control>
+
+    <youxel-table-toolbar>
+      <div>
+        <ng-content select="[yxlTable='title']"></ng-content>
+
+        <div
+          yxlTable="filterResult"
+          class="filter-list-result mt-5"
+          *ngIf="options.showFilterResults && toggleResultFilter()"
+        >
+          <span class="result-text d-inline-block">
+            {{ service.pageOptions.totalCount }}
+            {{ tableTranslatedItems?.filter?.result }}</span
+          >
+
+          <span class="reset" (click)="resetFilter()">{{
+            tableTranslatedItems?.filter?.resetAll
+          }}</span>
+        </div>
+      </div>
+      <div class="d-flex toolbar-content">
+        <ng-content
+          *ngIf="options.showAddBtn"
+          select="[yxlTable='addBtn']"
+        ></ng-content>
+        <ng-content
+          *ngIf="options.filter"
+          select="[yxlTable='filterModal']"
+        ></ng-content>
+      </div>
+    </youxel-table-toolbar>
+
+    <div>
+      <ng-content select="[yxlTable='filterResult']"></ng-content>
+    </div>
+
+    <!-- add switch here from server or client here -->
+    <app-youxel-table
+      *ngIf="options.isServerSide"
+      [columns]="columns"
+      [data]="data"
+      [urls]="urls"
+      [id]="id"
+      [options]="options"
+      [actions]="actions"
+      [tableTranslatedItemsFromEndUser]="tableTranslatedItems"
+      (onItemDeleted)="onItemDeleted.emit()"
+      (onGetData)="onGetData.emit()"
+      (onStatusChanged)="onStatusChanged.emit($event)"
+    >
+    </app-youxel-table>
+
+    <app-youxel-clientSide-table
+      *ngIf="!options.isServerSide"
+      [columns]="columns"
+      [urls]="urls"
+      [data]="data"
+      [id]="id"
+      [options]="options"
+      [actions]="actions"
+      [tableTranslatedItemsFromEndUser]="tableTranslatedItems"
+      (onSendUserInfo)="sendUserData($event)"
+      (onStatusChanged)="onStatusChanged.emit($event)"
+      (onItemDeleted)="onItemDeleted.emit($event)"
+      (onEditItem)="onClickEditItem($event)"
+    >
+    </app-youxel-clientSide-table>
+  </div>
+  <ng-content
+    *ngIf="!service.tableData?.length && !data?.length"
+    select="[emptyList]"
+  ></ng-content>
+</div>

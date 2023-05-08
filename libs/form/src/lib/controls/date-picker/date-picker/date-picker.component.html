@@ -1,0 +1,44 @@
+<div class="date-picker w-100" [ngClass]="optionsClass">
+    <div class="row">
+      <!-- start-date -->
+      <div class="col-6 start-date" [ngClass]="{'col-12': dateType === 'datepicker'}">
+        <p-calendar [inputId]="key" [readonlyInput]="true" [formlyAttributes]="field" [(ngModel)]="startDateValue" [minDate]="minDate" [maxDate]="maxDate"
+                    [icon]="to.icon" [showIcon]="showIcon" [view]="to.view || 'date'" [placeholder]="to.placeholder" (onSelect)="updateStartDateValue()">
+        </p-calendar>
+      </div>
+
+      <!-- start-time-picker -->
+      <div class="col-6 start-time" *ngIf="dateType === 'datetimepicker' || dateType === 'datetimerangepicker'">
+        <ngx-timepicker-field dir="ltr" [(ngModel)]="startTimeValue" [controlOnly]="true" #startTime (timeChanged)="getStartTime()">
+        </ngx-timepicker-field>
+      </div>
+
+      <!-- end-date -->
+      <div class="col-6 end-date" [ngClass]="{' mt-3': dateType === 'datetimerangepicker'}"
+        *ngIf="dateType === 'daterangepicker' || dateType === 'datetimerangepicker'">
+        <p-calendar [inputId]="key" [readonlyInput]="true" [formlyAttributes]="field" [(ngModel)]="endDateValue" [minDate]="startDateValue" [maxDate]="maxDate"
+                    [icon]="to.icon" [showIcon]="showIcon" [view]="to.view || 'date'" [placeholder]="to.placeholder" [required]="isEndDateRequired"
+                    (onSelect)="updateEndDateValue()" #endDate="ngModel">
+        </p-calendar>
+      </div>
+
+      <!-- end-time-picker -->
+      <div class="col-6 end-time" [ngClass]="{' mt-3': dateType === 'datetimerangepicker'}" *ngIf="dateType === 'datetimerangepicker'">
+        <ngx-timepicker-field dir="ltr" [(ngModel)]="endTimeValue" [controlOnly]="true" #endTime (timeChanged)="getEndTime()"></ngx-timepicker-field>
+      </div>
+    </div>
+
+    <!-- days/hours range -->
+    <p class="m-0 mt-3 header-1 font-size-16 font-weight-medium grey-12"
+      *ngIf="to.rangeType && (dateType === 'daterangepicker' || dateType === 'datetimerangepicker')">
+        <span *ngIf="to.rangeType === 'days'">
+            {{ daysCount }}
+            {{ to.daysCountHint }}
+        </span>
+
+        <span *ngIf="to.rangeType === 'hours'">
+            {{ hoursCount }}
+            {{ to.hoursCountHint }}
+        </span>
+    </p>
+  </div>

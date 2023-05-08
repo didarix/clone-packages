@@ -1,0 +1,23 @@
+{
+  "Fixes": {
+    "": "Empty .browserslistrc",
+    "95091": "export FormlyModule, FieldType, FieldTypeConfig, from formly to be enabled add new custom control"
+  },
+
+  "Features": {
+    "92596": "Add new control to the form [repeat, numbers, select buttons, chips",
+    "91313": "fix installation error msg from formly issue",
+    "92604": "add New feature to the form control e.g. add icon in case of not valid input beside input",
+    "96363": "add new control link",
+    "96360": "add New control label",
+    "96992": {
+      "/": "Add Customization to AutoComplete control",
+      "1": "show result under the input while do searching. => by sending showSearchResult= true,",
+      "2": "use default templete in the package + recieve localization items => by sending your custom localization items 'localizedItems: IAutoCompleteLocalizedItems'",
+      "3": "enable use to add their custom UI template as a input to the package => by sending your custom template 'resultViewTemplate'"
+    },
+    "96333": "implement the dropdown control",
+    "96334": "implement auto-complete control",
+    "96364": "implement date-picker control"
+  }
+}

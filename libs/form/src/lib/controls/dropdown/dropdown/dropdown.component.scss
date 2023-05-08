@@ -1,0 +1,47 @@
+:root {
+    --primary-en: 'Roboto'
+}
+
+::ng-deep .dropdown-control-wrapper {
+    .p-element {
+        .p-dropdown {
+            min-height: unset !important;
+            line-height: unset !important;
+            padding: 0 8px !important;
+            border: unset !important;
+            background: unset !important;
+
+            .p-inputtext {
+                padding: 0.5rem 0.5rem 0.25rem !important;
+            }
+
+            .p-dropdown-label {
+                font-family: var(--primary-en);
+            }
+
+            .p-dropdown-trigger {
+                width: unset !important;
+            }
+        }
+
+        .option {
+            img {
+                width: 20px !important;
+                height: auto !important;
+
+                &.margin {
+                    margin-inline-end: 1rem !important;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep [dir=rtl] {
+    .dropdown-control-wrapper {
+        .p-dropdown-panel {
+            left: unset !important;
+            right: 0;
+        }
+    }
+}

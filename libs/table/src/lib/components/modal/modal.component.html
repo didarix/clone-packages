@@ -1,0 +1,19 @@
+<ng-template pTemplate="header">
+  <div class="modal-header">
+    <div class="header-wrapper d-flex align-items-center justify-content-between w-100">
+      <h4 class="modal-title">{{ 'title' }}</h4>
+    </div>
+  </div>
+</ng-template>
+<div class="modal-body">
+  <ng-content *ngTemplateOutlet="template"></ng-content>
+</div>
+<p-footer>
+  <div class="modal-footer">
+    <div class="confirmation-wrapper d-flex flex-row-reverse">
+      <button type="button" (click)="close()" class="youxel-btn outline">{{ buttonsText?.cancel || 'Cancel' }}</button>
+      <button type="button" (click)="confirm(rowData)" class="youxel-btn solid primary-gredient">{{ buttonsText?.delete
+        || 'Delete'}} </button>
+    </div>
+  </div>
+</p-footer>

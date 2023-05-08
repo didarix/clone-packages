@@ -1,0 +1,340 @@
+@import '../../assets/variables';
+.youxel-table {
+  .sticky-header {
+    ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+      position: sticky;
+    }
+  }
+  .green-color {
+    color: indianred;
+  }
+  .p-button-danger {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .checkbox-width {
+    width: 50px;
+  }
+  .p-input-icon-left {
+    margin-left: 10px;
+    input {
+      height: 36px;
+    }
+  }
+  .expand-header {
+    color: $gray-500;
+    margin-bottom: 10px;
+  }
+  .expand-content {
+    margin-bottom: 10px;
+  }
+  .description-text {
+    width: 200px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .expanded-container {
+    width: max-content;
+    padding: 20px;
+
+    .expaned-description-text {
+      word-wrap: break-word;
+      width: 350px;
+    }
+  }
+  .image-data {
+    width: 45px;
+    height: 40px;
+  }
+  .image-title {
+    display: flex;
+    align-items: center;
+    .td-data {
+      margin-left: 5px;
+    }
+  }
+
+  ::ng-deep {
+    p-table .p-datatable .p-sortable-column .p-sortable-column-icon {
+      margin-left: 0 !important;
+    }
+    .p-datatable .p-datatable-thead > tr > th {
+      border: none;
+    }
+    p-table tr td {
+      cursor: default !important;
+    }
+    p-table tr td.pointer {
+      cursor: pointer !important;
+    }
+    p-table {
+      .ui-sortable-column-icon:before {
+        content: '';
+      }
+      .p-datatable#news-grid
+        .datatable-body
+        .datatable-scroll
+        .datatable-row-wrapper:last-child {
+        border-radius: 0 0 8px 8px;
+      }
+
+      .ui-sortable-column-icon.fa-sort-desc:before {
+        content: '\newdownicon';
+      }
+
+      .ui-sortable-column-icon.fa-sort-asc:before {
+        content: '\newupicon';
+      }
+    }
+    @media screen and (min-width: 280px) and (max-width: 550px) {
+      p-table tr th:nth-child(n + 4):not(:last-child),
+      p-table tr td:nth-child(n + 4):not(:last-child) {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 500px) and (max-width: 992px) {
+      .expaned-description-text {
+        width: 550px !important;
+      }
+    }
+
+    // .p-paginator {
+    //   display: none !important;
+    // }
+    p-table {
+      .p-paginator-bottom.p-paginator {
+        margin-top: 20px;
+        background-color: $gray-100;
+        border: none;
+        .p-paginator-current {
+          color: $gray-500;
+          position: absolute;
+          left: 0;
+        }
+        button.p-paginator-first.p-paginator-element.p-link.p-disabled.p-ripple,
+        button.p-paginator-first.p-paginator-element.p-link.p-ripple,
+        button.p-paginator-last.p-paginator-element.p-link.p-ripple {
+          display: none;
+        }
+
+        button.p-paginator-prev.p-paginator-element.p-link.p-disabled.p-ripple,
+        button.p-paginator-prev.p-paginator-element.p-link.p-ripple,
+        button.p-paginator-next.p-paginator-element.p-link.p-ripple,
+        button.p-paginator-next.p-paginator-element.p-link.p-disabled.p-ripple {
+          color: $primary-medium !important;
+          text-align: center;
+          width: 56px !important;
+          border-radius: 50px !important;
+          background-color: $white;
+        }
+        button.p-paginator-next.p-paginator-element.p-link.p-ripple,
+        button.p-paginator-next.p-paginator-element.p-link.p-disabled.p-ripple {
+          span.p-paginator-icon {
+            &::before {
+              content: '\e91b';
+            }
+          }
+        }
+        button.p-paginator-prev.p-paginator-element.p-link.p-ripple,
+        button.p-paginator-prev.p-paginator-element.p-link.p-disabled.p-ripple {
+          span.p-paginator-icon {
+            &::before {
+              content: '\e91a';
+            }
+          }
+        }
+        span.p-paginator-pages {
+          margin: 0 20px;
+          padding: 0px;
+          border-radius: 18px;
+          overflow: hidden;
+          background-color: $white;
+          box-shadow: $box-shadow-10;
+          list-style: none;
+          display: flex;
+          .p-paginator-page {
+            margin: 0;
+          }
+          .p-paginator-page.p-paginator-element.p-link.p-highlight.p-ripple {
+            width: 45px;
+            height: 35px;
+            border: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.4rem 0.75rem;
+            z-index: 1;
+            color: $text-dark !important;
+            font-weight: 500 !important;
+            border-radius: 18px;
+            // background-color: rgba(92, 34, 106, 0.3);
+            background-color: rgba($primary, 0.3);
+          }
+        }
+      }
+      .ui-sortable-column-icon:before {
+        content: '';
+      }
+      .p-datatable
+        .datatable-body
+        .datatable-scroll
+        .datatable-row-wrapper:last-child {
+        border-radius: 0 0 8px 8px;
+      }
+
+      .ui-sortable-column-icon.fa-sort-desc:before {
+        content: '\newdownicon';
+      }
+
+      .ui-sortable-column-icon.fa-sort-asc:before {
+        content: '\newupicon';
+      }
+    }
+  }
+  ::ng-deep p-table {
+    .p-datatable .p-datatable-tbody > tr:hover {
+      background-color: $white;
+    }
+    .p-datatable {
+      background-color: $gray-100;
+    }
+    .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+      background: $green-500;
+    }
+    .p-datatable .p-sortable-column .p-sortable-column-icon {
+      margin-left: 0 !important;
+    }
+    p-sorticon .pi-sort-alt {
+      display: flex;
+      flex-direction: column;
+    }
+    p-sorticon .pi-sort-alt:before,
+    p-sorticon .pi-sort-alt:after {
+      font-size: 10px;
+      position: relative;
+    }
+    p-sorticon .pi-sort-alt:before {
+      content: '\e907';
+      top: 5px;
+    }
+    p-sorticon .pi-sort-alt:after {
+      content: '\e906';
+      top: 4px;
+    }
+    p-sorticon .pi-sort-amount-up-alt:after,
+    p-sorticon .pi-sort-amount-down:after {
+      position: relative;
+      right: 6px;
+      top: 5px;
+      font-size: 10px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    p-sorticon .pi-sort-amount-up-alt:before,
+    p-sorticon .pi-sort-amount-down::before {
+      font-size: 10px;
+      background-size: contain;
+      top: -4px;
+      left: 4px;
+      position: relative;
+    }
+    p-sorticon.up .pi-sort-amount-up-alt::before {
+      background-image: url('../../../../assets/images/icons/sort-up.png');
+      color: transparent;
+    }
+    p-sorticon.down .pi-sort-amount-up-alt::after {
+      background-image: url('../../../../assets/images/icons/sort-down.png');
+      color: transparent;
+    }
+    p-sorticon.up .pi-sort-amount-down::before {
+      background-image: url('../../../../assets/images/icons/sort-up.png');
+      color: transparent;
+    }
+    p-sorticon.down .pi-sort-amount-down::after {
+      background-image: url('../../../../assets/images/icons/sort-down.png');
+      color: transparent;
+    }
+    p-sorticon .pi-sort-amount-up-alt::before {
+      content: '\e907';
+    }
+    p-sorticon .pi-sort-amount-up-alt::after {
+      content: '\e906';
+    }
+    p-sorticon .pi-sort-amount-down::before {
+      content: '\e907';
+    }
+    p-sorticon .pi-sort-amount-down::after {
+      content: '\e906';
+    }
+    .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+      color: $primary-light;
+    }
+    .p-datatable .p-sortable-column:focus {
+      box-shadow: none;
+      outline: none;
+      background: transparent;
+      color: $primary-light;
+    }
+    .p-datatable .p-sortable-column:hover {
+      background: transparent;
+    }
+    .align-icons {
+      display: flex;
+      flex-direction: column;
+      margin-top: -5px;
+    }
+    .align-header-title {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.29;
+      letter-spacing: normal;
+      text-align: left;
+      color: $gray-500;
+    }
+  }
+}
+.font-weight-bold {
+  font-weight: bold;
+  margin: 0 5px;
+}
+.pinIcon {
+  width: 16px;
+  height: 16px;
+  background-image: url('/assets/images/icons/pin.png');
+}
+
+:host-context(body.lang-ar) {
+  direction: rtl !important;
+  ::ng-deep {
+    .youxel-table p-table .p-paginator-bottom.p-paginator {
+      direction: rtl !important;
+    }
+
+    button.p-paginator-next.p-paginator-element.p-link.p-ripple,
+    button.p-paginator-next.p-paginator-element.p-link.p-disabled.p-ripple {
+      span.p-paginator-icon {
+        &::before {
+          content: '\e91a' !important;
+        }
+      }
+    }
+    button.p-paginator-prev.p-paginator-element.p-link.p-ripple,
+    button.p-paginator-prev.p-paginator-element.p-link.p-disabled.p-ripple {
+      span.p-paginator-icon {
+        &::before {
+          content: '\e91b' !important;
+        }
+      }
+    }
+  }
+}

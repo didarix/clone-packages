@@ -1,0 +1,22 @@
+<div emptyList class="empty-service">
+  <p class="title">
+    {{ options?.title }}
+  </p>
+  <div class="content">
+    <p class="text mt-5">
+      {{ options?.text }}
+    </p>
+    <p>
+      {{ options?.subText }}
+    </p>
+
+    <img [src]="options?.imagePath" />
+    <div
+      class="add-news-btn"
+      *ngIf="options?.showButton"
+      (click)="redirectAction()"
+    >
+      {{ options?.textButton }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+:root {
+    --primary-en: 'primary-en';
+    --primary-ar: 'primary-ar';
+    --grey-12: '#232a2d';
+    --crimson: '#232a2d'
+}
+
+::ng-deep .auto-complete {
+    p-autocomplete {
+        &.ng-invalid.ng-touched {
+            .p-autocomplete {
+
+                input,
+                button {
+                    border-color: var(--crimson);
+                }
+            }
+        }
+
+        .p-autocomplete {
+            .p-autocomplete-multiple-container {
+                input {
+                    height: 24px;
+                }
+            }
+
+            input,
+            .p-autocomplete-multiple-container {
+                border-inline-end: none;
+                border-top-right-radius: 0 !important;
+                border-bottom-right-radius: 0 !important;
+                min-width: unset !important;
+                width: 100%;
+            }
+
+            button {
+                border-inline-start: none;
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
+                min-width: unset !important;
+                width: 5rem;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                .p-button-icon {
+                    font-size: clamp(1.15rem, 1vw, 1.3rem);
+
+                    &::before {
+                        color: var(--primary);
+                    }
+                }
+            }
+        }
+    }
+}
+
+::ng-deep .p-field {
+    label {
+        color: var(--grey-12);
+        margin-bottom: 3rem;
+        font-family: var(--primary);
+        font-weight: 500;
+        font-size: clamp(.8rem, 1vw, 1.2rem);
+    }
+}

@@ -1,0 +1,50 @@
+div.header {
+  width: 100%;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #23292f;
+  margin: 1.8rem 0 0 0;
+}
+
+hr {
+  height: 0;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid #e9ecef;
+}
+
+button.apply,
+::ng-deep.p-button:enabled:active,
+::ng-deep.p-button:enabled:hover {
+  border-radius: 5px;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 2px 4px 14px 0 rgba(24, 86, 74, 0.2);
+  background-image: linear-gradient(to right, #d64f70, #9c2b80);
+}
+
+div {
+  text-align: left;
+
+  .button-text,
+  .button-text:enabled:active,
+  .button-text:enabled:hover {
+    color: #000;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 10px 0 10px;
+  }
+}
+
+//formly
+app-modal {
+  ::ng-deep .p-field {
+    min-width: 300px;
+    height: 55px;
+    margin-bottom: 0.5rem !important;
+  }
+}

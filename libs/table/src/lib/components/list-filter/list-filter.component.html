@@ -1,0 +1,33 @@
+<div class="filter-popup" [class.filter-popup-ar]="languageService.currentLanguage() == 'ar'">
+  <button class="filter"
+    [style.backgroundColor]=" filterpopup || isActive ? filterBtnStyle?.isOpened : filterBtnStyle?.isClosed"
+    (click)="openFilter()">
+    <img class="filter-img" src="assets/svg-icon/filter-icon.svg" alt="" />
+  </button>
+
+  <div class="filter-form" *ngIf="filterpopup">
+    <p class="filter-title"> {{'TABLE.TOOLBAR.FILTERS'|translate}} </p>
+
+    <form [formGroup]="formGroup">
+      <div class="formlyContainer">
+        <app-form-builder [form]='formGroup' [fields]='fields' [model]='model'></app-form-builder>
+      </div>
+
+      <hr class="hr-divider">
+
+      <div class="action-buttons">
+        <button type="button" class="filter-btn primary-gredient" (click)="sendFilterData()">
+          {{ buttonsText.apply }}
+        </button>
+
+        <button type="button" class="filter-cancel-btn" (click)="closeFilter()">
+          {{ buttonsText.close }}
+        </button>
+
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="overlay" (click)="hideFilterPopup()" [style.display]="filterpopup? 'block' : 'none'"></div>

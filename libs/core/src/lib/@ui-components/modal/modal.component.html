@@ -1,0 +1,33 @@
+<p-dialog
+  [dismissableMask]="true"
+  modal="modal"
+  [responsive]="true"
+  [(visible)]="display"
+  [closable]="true"
+  [resizable]="resizable"
+  styleClass="modalStyle"
+  [appendTo]="appendTo"
+  (onShow)="onOpen()"
+  (onHide)="afterClosedModal()"
+>
+  <ng-template pTemplate="header">
+    <div class="header">{{ header | translate }}</div>
+  </ng-template>
+
+  <ng-content></ng-content>
+
+  <hr *ngIf="showFooter" />
+
+  <ng-container *ngIf="showFooter">
+    <ng-template pTemplate="footer">
+      <div class="m">
+        <button class="apply" pButton type="button" (click)="confirmModal()">
+          {{ btnText.apply | translate }}
+        </button>
+        <button class="close button-text p-2" (click)="closeModal()">
+          {{ btnText.close | translate }}
+        </button>
+      </div>
+    </ng-template>
+  </ng-container>
+</p-dialog>

@@ -1,0 +1,252 @@
+:root {
+    --primary-en: 'primary-en';
+    --primary-ar: 'primary-ar';
+}
+
+::ng-deep .date-picker {
+    p-calendar {
+        &.ng-invalid.ng-touched {
+            .p-calendar {
+
+                input,
+                button {
+                    border-color: #cf0048;
+                }
+            }
+        }
+
+        .p-calendar {
+            .p-field {
+                label {
+                    color: var(--grey-12);
+                    margin-bottom: 3rem;
+                    font-family: primary-en;
+                    font-weight: 500;
+                    font-size: clamp(.8rem, 1vw, 1.2rem);
+                }
+            }
+
+            &.p-calendar-w-btn {
+                input {
+                    border-inline-end: none;
+                    border-top-right-radius: 0 !important;
+                    border-bottom-right-radius: 0 !important;
+                    min-width: unset;
+                    width: 100%;
+                }
+
+                button {
+                    border-inline-start: none;
+                    border-top-left-radius: 0 !important;
+                    border-bottom-left-radius: 0 !important;
+                    min-width: unset;
+                    width: 5rem;
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+
+                    .p-button-icon {
+                        font-size: 18px;
+
+                        &::before {
+                            color: var(--primary);
+                        }
+                    }
+                }
+            }
+
+            .p-datepicker table {
+
+                th,
+                td {
+                    padding: .25rem;
+
+                    >span {
+                        width: 3.5rem;
+                        height: 3.5rem;
+                    }
+                }
+
+                th>span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 auto;
+                }
+
+                td>span {
+                    &.p-highlight {
+                        background-color: var(--primary);
+                        color: var(--white);
+                    }
+                }
+            }
+        }
+
+        .p-datepicker .p-monthpicker .p-monthpicker-month {
+            font-size: 1.4rem;
+        }
+    }
+
+    .ngx-timepicker {
+        padding: 6px 10px;
+        border-radius: 8px;
+        border: 1px solid var(--grey-11) !important;
+        width: 100%;
+        font-size: 1.4rem;
+        color: var(--grey-12);
+        background: var(--white);
+
+        &:focus-within {
+            border: 1px solid var(--primary) !important;
+        }
+
+        input {
+            caret-color: var(--primary);
+        }
+
+        .ngx-timepicker__toggle {
+            .ngx-material-timepicker-toggle {
+                display: none;
+            }
+        }
+
+        .ngx-timepicker__time-colon {
+            margin-left: unset !important;
+        }
+
+        .ngx-timepicker__control--first,
+        .ngx-timepicker__control--third {
+            .ngx-timepicker-control {
+                width: 25px !important;
+                padding: 0 !important;
+
+                .ngx-timepicker-control__input {
+                    color: var(--grey-12);
+                    font-size: clamp(.8rem, 1vw, 1.2rem);
+                    font-family: var(--primary-en);
+                    font-weight: var(--font-weight-regular) !important;
+                    background-color: unset;
+                    padding: 0 !important;
+                }
+
+                .ngx-timepicker-control__arrows {
+                    top: -1px !important;
+                    display: none;
+
+                    .ngx-timepicker-control__arrow {
+                        height: 14px;
+
+                        &:hover {
+                            color: var(--primary) !important;
+                        }
+                    }
+                }
+
+                &.ngx-timepicker-control--active {
+                    &::after {
+                        content: unset !important;
+                    }
+                }
+            }
+        }
+
+        .ngx-timepicker__control--forth {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .period {
+                .period-control {
+                    .period-control__button {
+                        color: var(--grey-12);
+                        font-size: clamp(.8rem, 1vw, 1.2rem);
+                        font-family: var(--primary-en);
+                        font-weight: var(font-weight-medium) !important;
+                        border-inline-start: 1px solid var(--grey-11);
+                        padding-inline-start: 1rem;
+                        width: max-content;
+
+                        .period-control__arrow {
+                            color: transparent !important;
+                            font-size: unset;
+                            background-image: url("../../assets/media/icons/forms/angle-down.svg");
+                        }
+
+                        &::after {
+                            content: unset !important;
+                        }
+                    }
+                }
+
+                .period-selector {
+                    right: unset;
+                    top: unset;
+                    max-width: 70px;
+                    border-radius: 8px;
+                    margin-top: 18px;
+                    overflow: hidden;
+                    background-color: var(--white);
+                    padding: 0;
+
+                    .period-selector__button {
+                        font-size: clamp(.8rem, 1vw, 1.2rem);
+                        font-family: var(--primary-en);
+                        font-weight: var(--font-weight-regular) !important;
+
+                        &:hover {
+                            background-color: var(--body-background);
+                        }
+
+                        &.period-selector__button--active {
+                            color: var(--grey-12) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+::ng-deep [dir=rtl] .date-picker {
+    p-calendar {
+        .p-calendar {
+            &.p-calendar-w-btn {
+                input {
+                    border-top-left-radius: 0 !important;
+                    border-bottom-left-radius: 0 !important;
+                    border-top-right-radius: 8px !important;
+                    border-bottom-right-radius: 8px !important;
+                }
+
+                button {
+                    border-top-right-radius: 0 !important;
+                    border-bottom-right-radius: 0 !important;
+                    border-top-left-radius: 8px !important;
+                    border-bottom-left-radius: 8px !important;
+                }
+            }
+
+            .p-datepicker.p-component {
+                left: unset !important;
+                right: 0;
+
+                .p-datepicker-group-container {
+                    .p-datepicker-group {
+                        .p-datepicker-header {
+                            .p-datepicker-title {
+                                width: max-content;
+                            }
+
+                            button.p-ripple {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

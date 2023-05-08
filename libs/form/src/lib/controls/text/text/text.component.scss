@@ -1,0 +1,47 @@
+@import '../../../../assets/abstracts/variables';
+
+.text-field-container {
+  margin-bottom: 1rem;
+}
+label {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: $gray-1000;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.p-input-icon-left,
+.p-input-icon-right {
+  width: 100%;
+}
+.text-field-container ::ng-deep .p-component {
+  width: 100%;
+  border-radius: 7px;
+  padding: 0.7rem 2rem;
+}
+.required {
+  color: $red;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.text-field-container {
+  margin-bottom: 1rem;
+  label {
+    font-size: 14px;
+    color: $gray-500;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+  .p-input-icon-left,
+  .p-input-icon-right {
+    width: 100%;
+  }
+
+  ::ng-deep .p-component {
+    width: 100%;
+    border-radius: 7px;
+    padding: 0.7rem 0.5rem;
+  }
+}

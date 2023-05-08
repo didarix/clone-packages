@@ -1,0 +1,51 @@
+@import '../../../assets/variables';
+
+::ng-deep {
+  .action-label {
+    font-size: 13px !important;
+    color: $gray-700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: normal;
+    text-align: left;
+    margin: 0 !important;
+    padding: 5px 5px 5px 10px;
+  }
+  .action-label:hover {
+    background-color: $white-500;
+  }
+  .red-text {
+    color: $rejected-color;
+    font-weight: 700;
+  }
+  .p-overlaypanel:after {
+    border-width: 8px;
+    margin-left: -4px;
+  }
+  .p-overlaypanel::before {
+    display: none !important;
+  }
+  .p-overlaypanel .p-overlaypanel-content {
+    // padding: 0 !important;
+  }
+  .p-overlaypanel {
+    display: inline-block !important;
+    position: absolute !important;
+    z-index: 1016 !important;
+    margin-top: -5px !important;
+    left: auto !important;
+    top: auto !important;
+    width: 130px !important;
+    border-radius: 10px !important;
+    box-shadow: $box-shadow-light-blue !important;
+    border: 0.5px solid $white-100 !important;
+    background-color: $white;
+  }
+}
+
+.actions-img-container {
+  img {
+    cursor: pointer;
+  }
+}

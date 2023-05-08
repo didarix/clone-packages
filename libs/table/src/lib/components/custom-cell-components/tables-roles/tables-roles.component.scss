@@ -1,0 +1,33 @@
+@import '../../../assets/variables';
+.roles {
+  display: flex;
+  align-items: center;
+
+  .first-role {
+    margin-right: 10px;
+    max-width: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .roles-number {
+    width: 100px;
+    height: 23px;
+    text-align: center !important;
+    display: initial !important;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0 !important;
+    border-radius: 5px;
+    color: $white;
+    justify-content: flex-start;
+    background-image: $primary-light-right-gradient;
+    position: relative;
+    font-weight: 500;
+    .p-paginator-icon {
+      font-size: 0.8rem;
+      margin: 4px 0 0 5px;
+    }
+  }
+}

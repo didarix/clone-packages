@@ -1,0 +1,14 @@
+<div class="radio-buttons">
+  <div class="radio-buttons__label my-4 mx-2">
+    {{ to.label }}
+  </div>
+  <div class="radio-buttons__container">
+    <ng-container *ngFor="let item of to.options | formlySelectOptions: field | async">
+      <button class="radio-button position-relative mx-2" [ngClass]="{ selected: formControl.value === item.value }">
+        {{ item.label }}
+        <input (click)="onSelectItem(item.value)" type="radio" [formlyAttributes]="field" [value]="item['value']"
+          [disabled]="item['disabled']" [required]="to.required" />
+      </button>
+    </ng-container>
+  </div>
+</div>

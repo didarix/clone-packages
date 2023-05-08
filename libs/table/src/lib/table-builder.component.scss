@@ -1,0 +1,41 @@
+@import '../lib/assets/_variables';
+
+.toolbar-content {
+  justify-content: flex-end;
+}
+::ng-deep .p-dialog .p-dialog-content {
+  padding-bottom: 1rem !important;
+}
+
+.filter-list-result {
+  display: flex;
+  align-items: center;
+  .result-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: $gray-500;
+    margin-inline-end: 1rem;
+  }
+  .reset {
+    // background: $yellow-200;
+    border: none;
+    border-radius: 5px;
+    color: $yellow-900;
+    font-size: 14px;
+    padding: 0.2rem 1rem;
+    cursor: pointer;
+  }
+}
+
+::ng-deep {
+  .lang-ar {
+    .p-inputswitch .p-inputswitch-slider:before {
+      left: initial !important;
+      right: 0.25rem;
+    }
+    .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+      right: 2.7rem !important;
+      // right: 2.7rem ​ !important;
+    }
+  }
+}

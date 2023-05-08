@@ -1,0 +1,24 @@
+<div class="auto-complete">
+    <p-autoComplete [formControl]="formControl" [formlyAttributes]="field" [suggestions]="suggestions | async" [field]="labelPropertyName" [dropdown]="true"
+                    [multiple]="to.multiple" [dropdownIcon]="to.dropdownIcon || 'pi pi-chevron-down'" [style]="to.style" [styleClass]="to.styleClass"
+                    [inputStyle]="to.inputStyle" [inputStyleClass]="to.inputStyleClass" [panelStyle]="to.panelStyle" [panelStyleClass]="to.panelStyleClass"
+                    [group]="to.group" [optionGroupLabel]="to.optionGroupLabel || 'label'" [optionGroupChildren]="to.optionGroupChildren || 'items'"
+                    [placeholder]="to.placeholder" [readonly]="to.readonly" [disabled]="formControl.disabled" [type]="to.inputType || 'text'"
+                    [emptyMessage]="to.emptyMessage || 'No records found.'" [showEmptyMessage]="true" [dropdownMode]="to.dropdownMode || 'current'"
+                    [hideTransitionOptions]="to.hideTransitionOptions || '.1s linear'" [autofocus]="to.autofocus" [forceSelection]="to.forceSelection"
+                    [showTransitionOptions]="to.showTransitionOptions || '.12s cubic-bezier(0, 0, 0.2, 1)'" (completeMethod)="search($event)"
+                    (onSelect)="onSelect($event)" (onUnselect)="onUnselect($event)" (onClear)="onClear($event)" (onLazyLoad)="onLazyLoad($event)">
+        <ng-template let-selectedItem pTemplate="selectedItem">
+            <ng-container *ngTemplateOutlet="to.selectedItemTemplate ? to.selectedItemTemplate : defaultTemplate; context: { $implicit: selectedItem }">
+            </ng-container>
+        </ng-template>
+
+        <ng-template let-option pTemplate="item">
+            <ng-container *ngTemplateOutlet="to.itemTemplate ? to.itemTemplate : defaultTemplate; context: { $implicit: option }"></ng-container>
+        </ng-template>
+    </p-autoComplete>
+</div>
+
+<ng-template let-option #defaultTemplate>
+    <span>{{ option[to.labelPropertyName] ? option[to.labelPropertyName] : option }}</span>
+</ng-template>

@@ -1,0 +1,41 @@
+@import "../../../../assets/abstracts/variables";
+
+.radio-buttons {
+  &__container {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+  &__label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $text-dark;
+  }
+}
+.opacity-0 {
+  opacity: 0;
+}
+.radio-button {
+  background-color: $white;
+  color: $text-color;
+  padding: 8px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 1px solid $white;
+  margin-top: 0.5rem;
+  &.selected {
+    color: $primary;
+    border-width: 1px;
+    border-color: $primary;
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}

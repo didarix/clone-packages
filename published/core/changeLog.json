@@ -1,0 +1,17 @@
+{
+  "Fixes": {
+    "01/6/22": {
+      "description": "token has been passed as input to the package module, if it's something else 'secret' key",
+      "example": "const userTokenKey = 'token';  YouxelCoreModule.forRoot({ environment, userTokenKey })"
+    },
+    "94132": "Fix encryption decryption bug in the core module - use the right encryption key"
+  },
+
+  "Features": {
+    "92112": "export IYouxelEnvironment interface from package to the users",
+    "91312": "Pass user Token Key name as input to the package e.g. userTokenKey = 'token'",
+    "92672": "add encryption and decryption services to the package",
+    "96588": "Pass user Language Key name as input to the package e.g. userLanguageKey = 'lang'",
+    "96643": "Add New Methods to storage service.. e.g.=> removeItem(), setStringItem()"
+  }
+}

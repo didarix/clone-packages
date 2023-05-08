@@ -1,0 +1,18 @@
+@import '../../../../assets/abstracts/variables';
+
+.repeat-container {
+  .sub-form {
+    padding: 2rem;
+    background-color: $gray-500;
+  }
+}
+
+.btn-danger {
+  background-color: $red;
+  color: $white;
+}
+
+.btn-add {
+  background-color: $primary;
+  color: $white;
+}

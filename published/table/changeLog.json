@@ -1,0 +1,13 @@
+{
+  "Fixes": {
+    "02/6/22": {
+      "description": "Some inputs have been added to the table to handle the untranslated text as we remove translation from every package and depend on the user of the package to pass them translated.",
+      "example": "Export 'ITranslatedItemsFromEndUser' interface and pass the inputs you need to change"
+    },
+    "93151": "Recive Status url even whole method from the packages consumers",
+    "": "Empty .browserslistrc",
+    "94689": "add property in table to control showing filter result"
+  },
+
+  "Features": {}
+}

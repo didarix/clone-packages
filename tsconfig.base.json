@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "noImplicitReturns": false,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "baseUrl": ".",
+    "paths": {
+      "@youxel/core": ["libs/core/src/index.ts"],
+      "@youxel/form": ["libs/form/src/index.ts"],
+      "@youxel/shared": ["libs/shared/src/index.ts"],
+      "@youxel/table": ["libs/table/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

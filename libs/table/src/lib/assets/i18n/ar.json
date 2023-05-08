@@ -1,0 +1,17 @@
+{
+  "MODEL": {
+    "Confirm": "تأكيد",
+    "Cancel": "إلغاء"
+  },
+
+  "TABLE": {
+    "PAGINATION": {
+      "showing": "عرض",
+      "off": "من"
+    },
+    "modelHeaderText": "تأكيد المسح",
+    "actionColHeader": "الإجراءات",
+    "modelDeleteActionName": "مسح",
+    "confirmationDeleteMsg": "تأكيد المسح"
+  }
+}

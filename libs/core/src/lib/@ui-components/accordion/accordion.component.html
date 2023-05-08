@@ -1,0 +1,20 @@
+<!-- <p-accordion [expandIcon]="options?.expandIcon" [collapseIcon]="options?.collapseIcon">
+  <ng-container >
+      <p-accordionTab *ngFor="let tab of options?.accordionTabs" [header]="tab?.header">
+
+        <ng-content></ng-content>
+
+      </p-accordionTab>
+  </ng-container>
+</p-accordion> -->
+
+
+<p-accordion [expandIcon]="options?.expandIcon" [collapseIcon]="options?.collapseIcon">
+  <ng-container *ngFor="let tab of options?.accordionTabs">
+    <p-accordionTab [header]="tab?.header">
+       <ng-content></ng-content>
+    </p-accordionTab>
+  </ng-container>
+
+</p-accordion>
+

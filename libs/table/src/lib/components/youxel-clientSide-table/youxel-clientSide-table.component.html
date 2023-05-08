@@ -1,0 +1,237 @@
+<div class="youxel-table" *ngIf="data?.length">
+  <p-table
+    [value]="data"
+    [paginator]="options.paginator"
+    [columns]="columns"
+    [rows]="options.pageSize"
+    [expandedRowKeys]="expandedRows"
+    currentPageReportTemplate="{{
+      tableTranslatedItemsFromEndUser?.paginationTranslationTxt?.showing
+    }} {last} {{
+      tableTranslatedItemsFromEndUser?.paginationTranslationTxt?.off
+    }} {totalRecords}"
+    [showCurrentPageReport]="true"
+    [totalRecords]="data?.totalCount"
+    (onRowSelect)="onRowSelect($event)"
+    (onRowUnselect)="onRowUnselect($event)"
+    [ngClass]="{ 'sticky-header': options.sticky }"
+    styleClass="p-datatable-responsive-demo"
+    [sortMode]="options.sortMode"
+    [(selection)]="selectedData"
+    selectionMode="options.selectionMode"
+    resizableColumns="options.resizableColumns"
+    responsiveLayout="scroll"
+    [responsive]="true"
+    (onSort)="onSort($event)"
+    [styleClass]="languageService.isEnglish() ? '' : 'rtl'"
+    dataKey="row"
+    expandableRows="true"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th style="width: 3rem" *ngIf="options.addCheckBox">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th
+          pResizableColumn
+          *ngFor="let col of columns"
+          [pSortableColumn]="col.field"
+          [ngClass]="{
+            disableSort: col.field == 'thumbnail' || col.field == 'photo'
+          }"
+        >
+          <div
+            class="align-header-title"
+            [style]="col.customStyles?.headerStyle"
+          >
+            {{ col.header }}
+            <div class="align-icons Image_Data_table" *ngIf="col.hideSort">
+              <p-sortIcon
+                [field]="col.field"
+                [class.up]="isAscending == true"
+                [class.down]="isAscending == false"
+              >
+              </p-sortIcon>
+            </div>
+            <div class="align-icons" *ngIf="!col.hideSort">
+              <p-sortIcon
+                [field]="col.field"
+                [class.up]="isAscending == true"
+                [class.down]="isAscending == false"
+              >
+              </p-sortIcon>
+            </div>
+          </div>
+        </th>
+        <th class="align-header-title" *ngIf="actions">
+          {{ tableTranslatedItemsFromEndUser?.actionColHeader }}
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template
+      pTemplate="body"
+      let-rowData
+      let-columns="columns"
+      let-editing="editing"
+      let-expanded="expanded"
+    >
+      <tr [pSelectableRow]="rowData" class="rowItem">
+        <td class="checkbox-width" *ngIf="options.addCheckBox">
+          <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+        </td>
+        <td
+          *ngFor="let col of columns"
+          [style]="col.customStyles?.columnStyle"
+          [ngClass]="{ pointer: col.isClicked }"
+          (click)="cellClicked(col, rowData)"
+        >
+          <table-string-cell
+            *ngIf="col.type === columnDataTypes.String"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-string-cell>
+
+          <table-date-cell
+            *ngIf="col.type === columnDataTypes.Date"
+            [col]="col"
+            [rowData]="rowData"
+          ></table-date-cell>
+
+          <table-input-switch-cell
+            *ngIf="col.type === columnDataTypes.Boolean"
+            [rowData]="rowData"
+            [col]="col"
+            (statusChangedEmitter)="handleStatusChange($event)"
+          ></table-input-switch-cell>
+
+          <table-image-cell
+            *ngIf="col.type === columnDataTypes.Image"
+            [col]="col"
+            [rowData]="rowData"
+            (emitError)="onImageError($event, col)"
+          ></table-image-cell>
+
+          <table-image-string-cell
+            *ngIf="col.type === columnDataTypes.ImageWithString"
+            [col]="col"
+            [rowData]="rowData"
+            (emitError)="onImageError($event, col)"
+          ></table-image-string-cell>
+
+          <table-custome-cell
+            *ngIf="col.type === columnDataTypes.customeCell"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-custome-cell>
+
+          <tables-roles-cell
+            *ngIf="col.type === columnDataTypes.Roles"
+            [col]="col"
+            [rowData]="rowData"
+            (onUserDataChanged)="editUserRoles($event)"
+          >
+          </tables-roles-cell>
+
+          <table-decrypted-string
+            *ngIf="col.type === columnDataTypes.DecryptedString"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-decrypted-string>
+        </td>
+
+        <td *ngIf="actions && actions.length > 0">
+          <actions-cell
+            [rowData]="rowData"
+            [actions]="actions"
+            (onItemSelected)="applyAction($event)"
+          ></actions-cell>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template
+      pTemplate="rowexpansion"
+      let-rowData
+      let-columns="columns"
+      let-expanded
+    >
+      <div class="expanded-container">
+        <div class="expand-row" *ngFor="let col of columns">
+          <div class="expand-header">{{ col.header }}</div>
+
+          <table-string-cell
+            *ngIf="col.type === columnDataTypes.String"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-string-cell>
+
+          <table-date-cell
+            *ngIf="col.type === columnDataTypes.Date"
+            [col]="col"
+            [rowData]="rowData"
+          ></table-date-cell>
+
+          <table-input-switch-cell
+            *ngIf="col.type === columnDataTypes.Boolean"
+            [rowData]="rowData"
+            [col]="col"
+            (statusChangedEmitter)="handleStatusChange($event)"
+          ></table-input-switch-cell>
+
+          <table-image-cell
+            *ngIf="col.type === columnDataTypes.Image"
+            [col]="col"
+            [rowData]="rowData"
+            (emitError)="onImageError($event, col)"
+          ></table-image-cell>
+
+          <table-image-string-cell
+            *ngIf="col.type === columnDataTypes.ImageWithString"
+            [col]="col"
+            [rowData]="rowData"
+            (emitError)="onImageError($event, col)"
+          ></table-image-string-cell>
+
+          <table-custome-cell
+            *ngIf="col.type === columnDataTypes.customeCell"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-custome-cell>
+
+          <tables-roles-cell
+            *ngIf="col.type === columnDataTypes.Roles"
+            [col]="col"
+            [rowData]="rowData"
+            (onUserDataChanged)="editUserRoles($event)"
+          >
+          </tables-roles-cell>
+
+          <table-decrypted-string
+            *ngIf="col.type === columnDataTypes.DecryptedString"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-decrypted-string>
+        </div>
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+
+<ng-template #deleteModal>
+  <div class="confirmation d-flex align-items-center">
+    <div class="d-flex align-items-center">
+      {{ tableTranslatedItemsFromEndUser?.modelDeleteActionName }}
+      <span class="font-weight-bold text-truncate"
+        >"{{ selectedItem[primaryKey] | strLimit }}"</span
+      >
+      <span>{{ tableTranslatedItemsFromEndUser?.confirmationDeleteMsg }}</span>
+    </div>
+  </div>
+</ng-template>

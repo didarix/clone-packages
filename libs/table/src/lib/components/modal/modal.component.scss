@@ -1,0 +1,63 @@
+@import '../../assets/variables';
+::ng-deep {
+  .p-dialog::before {
+    // content: '';
+    // position: absolute;
+    // width: 10px;
+    // height: 100%;
+    // background-color: $rejected-color;
+    // border-top-left-radius: 0.3rem;
+    // border-bottom-left-radius: 0.3rem;
+  }
+  .modal-body {
+    margin-bottom: 20px;
+  }
+  .modal-footer {
+    border-top: none;
+    .confirmation-wrapper {
+      justify-content: flex-end !important;
+    }
+    .youxel-btn {
+      border: none;
+      padding: 6px 0;
+      text-align: center;
+      border-radius: 5px;
+      color: $white;
+      font-family: 'STC Regular';
+      background-color: transparent;
+      text-transform: capitalize;
+      line-height: 16px;
+      font-size: 14px;
+      padding: 10px 19px;
+      &.outline {
+        color: $primary-light;
+      }
+      &.primary-gredient {
+        background-image: $primary-gradient;
+      }
+      &.solid {
+        background-color: $primary-light;
+      }
+    }
+  }
+
+  .modal-header {
+    border-bottom: none;
+    padding: 0.5rem;
+    .header-wrapper {
+      .modal-title {
+        margin: 0;
+        color: $gray-700;
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .youxel-close:before {
+    content: '\e90b';
+  }
+}

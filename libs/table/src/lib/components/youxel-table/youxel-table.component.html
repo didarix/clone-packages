@@ -1,0 +1,275 @@
+<div class="youxel-table" *ngIf="service.tableData?.length">
+  <p-table
+    [value]="service.tableData"
+    [paginator]="service.pageOptions.paginator"
+    [resetPageOnSort]="false"
+    [lazy]="true"
+    [columns]="columns"
+    [rows]="service.pageOptions.pageSize"
+    [expandedRowKeys]="expandedRows"
+    currentPageReportTemplate="{{
+      tableTranslatedItemsFromEndUser?.paginationTranslationTxt?.showing
+    }}
+    {last}
+    {{ tableTranslatedItemsFromEndUser?.paginationTranslationTxt?.off }}
+    {totalRecords}"
+    [showCurrentPageReport]="
+      service.pageOptions.showCurrentPageReport === undefined
+        ? true
+        : service.pageOptions.showCurrentPageReport
+    "
+    [totalRecords]="service.pageOptions.totalCount"
+    [loading]="service.pageOptions.loading"
+    (onRowSelect)="onRowSelect($event)"
+    (onRowUnselect)="onRowUnselect($event)"
+    [ngClass]="{ 'sticky-header': service.pageOptions.sticky }"
+    styleClass="p-datatable-responsive-demo"
+    [sortMode]="service.pageOptions.sortMode"
+    [(selection)]="selectedData"
+    selectionMode="service.pageOptions.selectionMode"
+    resizableColumns="service.pageOptions.resizableColumns"
+    responsiveLayout="scroll"
+    [responsive]="true"
+    (onSort)="onSort($event)"
+    (onPage)="paginate($event)"
+    [styleClass]="languageService.isEnglish() ? '' : 'rtl'"
+    dataKey="row"
+    expandableRows="true"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr *ngIf="service.pageOptions.filter">
+        <th style="width: 3rem" *ngIf="service.pageOptions.addCheckBox">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+
+        <th
+          pResizableColumn
+          *ngFor="let col of columns"
+          [pSortableColumn]="service.pageOptions.showSort && col.field"
+          [ngClass]="{ disableSort: col.type === columnDataTypes.Image }"
+        >
+          <div
+            class="align-header-title"
+            [style]="col.customStyles?.headerStyle"
+          >
+            {{ col.header }}
+
+            <div class="align-icons Image_Data_table" *ngIf="col.hideSort">
+              <p-sortIcon
+                [field]="col.field"
+                [class.up]="isAscending == true"
+                [class.down]="isAscending == false"
+                *ngIf="service.pageOptions.showSort"
+              >
+              </p-sortIcon>
+            </div>
+
+            <div class="align-icons" *ngIf="!col.hideSort">
+              <p-sortIcon
+                [field]="col.field"
+                [class.up]="isAscending == true"
+                [class.down]="isAscending == false"
+                *ngIf="service.pageOptions.showSort"
+              >
+              </p-sortIcon>
+            </div>
+          </div>
+        </th>
+
+        <th class="align-header-title" *ngIf="actions">
+          {{ tableTranslatedItemsFromEndUser?.actionColHeader }}
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template
+      pTemplate="body"
+      let-rowData
+      let-columns="columns"
+      let-expanded="expanded"
+    >
+      <tr [pSelectableRow]="rowData" class="rowItem">
+        <td class="checkbox-width" *ngIf="service.pageOptions.addCheckBox">
+          <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+        </td>
+        <td
+          *ngFor="let col of columns"
+          [style]="col.customStyles?.columnStyle"
+          [ngClass]="{ pointer: col.isClicked }"
+          (click)="cellClicked(col, rowData)"
+        >
+          <table-string-cell
+            *ngIf="col.type === columnDataTypes.String"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-string-cell>
+
+          <table-render-string-cell
+            *ngIf="col.type === columnDataTypes.RenderString"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-render-string-cell>
+
+          <table-custome-cell
+            *ngIf="col.type === columnDataTypes.customeCell"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-custome-cell>
+
+          <table-date-cell
+            *ngIf="col.type === columnDataTypes.Date"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-date-cell>
+
+          <table-date-time-cell
+            *ngIf="col.type === columnDataTypes.DateTime"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-date-time-cell>
+
+          <table-input-switch-cell
+            *ngIf="col.type === columnDataTypes.Boolean"
+            [rowData]="rowData"
+            [col]="col"
+            (statusChangedEmitter)="changeRowStatus($event)"
+          ></table-input-switch-cell>
+
+          <table-image-cell
+            *ngIf="col.type === columnDataTypes.Image"
+            [col]="col"
+            [rowData]="rowData"
+            (emitError)="onImageError($event, col)"
+          ></table-image-cell>
+
+          <table-image-string-cell
+            *ngIf="col.type === columnDataTypes.ImageWithString"
+            [col]="col"
+            [rowData]="rowData"
+            (emitError)="onImageError($event, col)"
+          ></table-image-string-cell>
+
+          <table-decrypted-string
+            *ngIf="col.type === columnDataTypes.DecryptedString"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-decrypted-string>
+        </td>
+
+        <td *ngIf="actions && actions.length > 0" class="actionsCol">
+          <actions-cell
+            [rowData]="rowData"
+            [actions]="actions"
+            (onItemSelected)="applyAction($event)"
+          ></actions-cell>
+        </td>
+
+        <td id="showExpand" class="d-xl-none d-lg-none">
+          <button
+            type="button"
+            pButton
+            pRipple
+            [pRowToggler]="rowData"
+            class="p-button-text p-button-rounded p-button-plain"
+            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+      <div class="expanded-container">
+        <div class="expand-row" *ngFor="let col of columns">
+          <div class="expand-header">{{ col.header }}</div>
+
+          <table-string-cell
+            *ngIf="col.type === columnDataTypes.String"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-string-cell>
+
+          <table-render-string-cell
+            *ngIf="col.type === columnDataTypes.RenderString"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-render-string-cell>
+
+          <table-custome-cell
+            *ngIf="col.type === columnDataTypes.customeCell"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-custome-cell>
+
+          <table-date-cell
+            *ngIf="col.type === columnDataTypes.Date"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-date-cell>
+
+          <table-date-time-cell
+            *ngIf="col.type === columnDataTypes.DateTime"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-date-time-cell>
+
+          <table-input-switch-cell
+            *ngIf="col.type === columnDataTypes.Boolean"
+            [rowData]="rowData"
+            [col]="col"
+            (statusChangedEmitter)="changeRowStatus($event)"
+          ></table-input-switch-cell>
+
+          <table-image-cell
+            *ngIf="col.type === columnDataTypes.Image"
+            [col]="col"
+            [rowData]="rowData"
+            (emitError)="onImageError($event, col)"
+          ></table-image-cell>
+
+          <table-image-string-cell
+            *ngIf="col.type === columnDataTypes.ImageWithString"
+            [col]="col"
+            [rowData]="rowData"
+            (emitError)="onImageError($event, col)"
+          ></table-image-string-cell>
+
+          <table-decrypted-string
+            *ngIf="col.type === columnDataTypes.DecryptedString"
+            [col]="col"
+            [rowData]="rowData"
+          >
+          </table-decrypted-string>
+        </div>
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+
+<ng-template #deleteModal>
+  <div class="confirmation d-flex align-items-center">
+    <div class="d-flex align-items-center">
+      {{ tableTranslatedItemsFromEndUser?.modelDeleteActionName }}
+      <span
+        class="font-weight-bold text-truncate"
+        *ngIf="!selectedItem.isHTMLContent"
+        >"{{ selectedItem[selectedItem.primaryKey] | strLimit }}"</span
+      >
+      <span
+        class="font-weight-bold text-truncate"
+        [innerHtml]="selectedItem[selectedItem.primaryKey] | strLimit"
+        *ngIf="selectedItem.isHTMLContent"
+      ></span>
+      <span> {{ tableTranslatedItemsFromEndUser?.confirmationDeleteMsg }}</span>
+    </div>
+  </div>
+</ng-template>

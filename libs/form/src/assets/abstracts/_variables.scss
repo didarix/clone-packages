@@ -1,0 +1,358 @@
+
+// theme-color-variables ( all no use except primary #c8a977 )
+$primary: #c8a977;
+$primary-light: #cce8ff;
+$primary-blue: #6586cd;
+$primary-darker: #003e71;
+$secondary: #7c9b90;
+$light-blue: #eff7fd;
+
+// green-color-variables
+$green: green;
+$green-100: #f2f9f6;
+$green-200: #e1f1eb;
+$green-300: #49a487;
+$green-400: rgba(0, 100, 80, 0);
+$green-500: #a6e9d5;
+$green-600: #00664f;
+$green-700: #49a4872d;
+$olive-green: #a1c755;
+$olive-green-light: #d9e9bf;
+$green-light: #00e89f;
+$green-success: #aae2c2;
+
+// yellow-color-variable
+$yellow: #ffc107;
+$yellow-100: #ffdfa6;
+$yellow-200: #f4ecce;
+$yellow-300: #c69f73;
+$yellow-400: #e5af4f;
+$yellow-600: #d99a28;
+$yellow-700: #c79935;
+$yellow-800: #d99b2845;
+$yellow-900: #937644;
+
+// white-color-variables
+$white: #fff;
+$white-50: #f1f3f4;
+$white-100: #e9ebf1;
+$white-200: #eee;
+$white-300: #cfd8dc;
+$white-500: #cfd8dc;
+$white-600: #6c757d;
+$white-700: #f6f6f682;
+
+// gray-color-variables
+$gray: gray;
+$gray-50: #f5f2f2f5;
+$gray-100: #f8f8fa;
+$gray-200: #aaa;
+$gray-300: #dcdde5;
+$gray-400: #d2d2d2;
+$gray-500: #868894;
+$gray-600: rgb(91, 103, 112);
+$gray-700: #55565e;
+$gray-800: #444;
+$gray-900: #333;
+$gray-1000: #23292f;
+$bg-gray-200: #f0f1f1;
+$grey-11: #b9bfc6;
+$bright-grey: #51565b;
+
+
+$coolGray-50: #f9fafb;
+$coolGray-100: #f3f4f6;
+$coolGray-200: #e7e4ec;
+$coolGray-300: #d1d5db;
+$coolGray-400: #c1c1c1;
+$coolGray-500: #5f676f;
+$coolGray-600: #4b5563;
+$coolGray-700: #374151;
+$coolGray-800: #1d252d;
+$coolGray-900: #111827;
+
+
+// blue-color-variables
+$blue: #0d6efd;
+$blue-50: #e6e9eb;
+$blue-100: #dcdde5;
+$blue-200: #f7f9fd;
+$blue-300: #66c0cb;
+$blue-400: #838f9e;
+$blue-500: #607d8b;
+$blue-600: #5d6770;
+$blue-700: #369;
+$blue-800: rgba(43, 79, 94, 0.87);
+$blue-900: #039be5;
+$bg-blue-light: #f2f4f8;
+$bg-blue-dark: #a8cfd3;
+
+// brown-color-variables
+$brown: #8c532d;
+$brown-600: #e3743a;
+$brown-900: #955023;
+
+// red-color-variables
+$red: #f16b6b;
+$red-50: #e5e5e5;
+$red-100: rgb(197, 189, 189);
+$red-200: rgba(241, 107, 107, 0.5);
+$red-300: #ed5454;
+$red-500: #ff444d;
+
+// rose-color-variables
+$rose-50: #f8d7da;
+$rose-100: #fd5a5a;
+
+//basic color-variables
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$black: #000000;
+$black-plus-0d: #0000000d;
+$black-transparent: #fff0;
+$light-black: rgba(0, 0, 0, 0.8);
+$orange: orange;
+$teal: #20c997;
+$cyan: #0dcaf0;
+
+//state-color-variables
+$danger: #d64f70;
+$success: #1b998b;
+$approved: $success;
+$pending: #f4b747;
+$info: #6586cd;
+$warning: $yellow;
+$gray-red: rgb(197, 189, 189);
+$dark: $gray-700;
+$poor: #c24d56;
+$cancel: #f96179;
+$light: $gray-100;
+$rejected-color: #f16b6b;
+
+// text-color-variables
+$text-dark: #23292f;
+$text-gray: $gray-700;
+$text-color: $gray-700;
+
+// weather-color-variables
+$rain: #75b4e3;
+$rain-bg: #438abe;
+$rain-bg-dark: #367fb5;
+$rain-night-light: #56589c;
+$rain-night-bg: #4d4f97;
+$rain-night-bg-dark: #2a3259;
+
+$cloud: #388ee7;
+$cloud-bg: #2b62a9f2;
+$cloud-bg-dark: #2b62a9;
+$cloud-night: #033175;
+$cloud-night-bg: #2565c3;
+$cloud-night-bg-dark: #1e5bb3;
+
+$clear-light: #abc6e0;
+$clear-night: #334167;
+$clear-night-bg-light: #546283;
+$clear-night-bg-dark: #192442;
+
+$snow: #7dd5f4;
+$snow-bg: #399dc1;
+$snow-bg-dark: #288fb4;
+$snow-night: #3291b2;
+$snow-night-bg: #3ba0c3;
+$snow-night-bg-dark: #105770;
+
+$thunderstorm: #9177d3;
+$thunderstorm-bg: #503693;
+$thunderstorm-bg-dark: #3b2081;
+$thunderstorm-night: #331a76;
+$thunderstorm-night-bg-dark: #120348;
+
+$dusty: #534536;
+$dusty-dark: #9c7f60;
+$dusty-gray: #ebe4dc;
+$dusty-bg: #beaf9f;
+$dusty-bg-dark: #b5a594;
+$dusty-night: #a99885;
+$dusty-night-bg: #9b8873;
+
+// shadows-color-variables
+$shadow-black: #0000002b;
+$shadow-blue: rgba(114, 159, 197, 0.1);
+$shadow-light-blue: rgba(228, 233, 241, 0.2);
+$shadow-blue-alpha: rgba(114, 159, 197, 0.3);
+$shadow-green: rgba(73, 164, 135, 0.1);
+$shadow-green-dark: rgba(0, 100, 80, 0.2);
+$shadow-light: rgba(255, 255, 255, 0.15);
+$shadow-white: rgba(255, 255, 255, 0);
+$shadow-gray-light: rgba(191, 193, 200, 0.24);
+$shadow-gray: rgba(228, 228, 228, 0.247);
+$shadow-gray-dark: rgba(81, 86, 91, 0.16);
+$shadow-gray-dark-2: rgba(151, 151, 153, 0.16);
+
+//box-shadow
+$box-shadow: 2px 4px 14px 0 rgb(24 86 74 / 20%);
+$box-shadow-1: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+$box-shadow-green: 2px 4px 14px 0 rgba(24, 86, 74, 0.2);
+$box-shadow-10: 0 0 20px 0 rgb(114 159 197 / 10%);
+$box-shadow-primary-light: 0 -25px 0 0 $primary-light;
+$box-shadow-light-blue: 0 28px 36px 0 rgba(100, 111, 135, 0.15);
+$box-shadow-black: 3px 7px 25px 0 $shadow-black;
+$box-shadow-light: 0 0 16px 0 rgba(107, 132, 153, 0.12);
+$box-shadow-blue: 0 0 20px 0 $shadow-blue;
+$box-shadow-blue-alpha: 0 0 20px 0 $shadow-blue-alpha;
+$box-shadow-white: 0 0 3px #ccc;
+$box-shadow-6: 0 4px 10px 0 rgb(0 0 0 / 6%);
+$box-shadow-header: 0 4px 10px 0 $shadow-gray-dark;
+$box-shadow-7: 0 2px 5px 0 $shadow-gray-dark;
+$box-shadow-8: 0 3px 5px 0 rgba(81, 86, 91, 0.15);
+$box-shadow-9: 0 6px 24px 0 $shadow-gray-dark;
+$box-shadow-11: 0 2.8px 6.9px 0 $shadow-gray-dark;
+$box-shadow-12: 0 2px 5px 0 $shadow-gray-dark-2;
+
+// box shadow
+$shadow-wrapper-lg: 0 6px 15px 0 rgba(0, 128, 255, 0.12);
+$shadow-wrapper-sm: 6px 6px 15px 0 rgba(0, 128, 255, 0.12);
+$shadow-primary-dark: 6px 6px 15px 0 rgba(0, 128, 255, 0.1);
+
+// announcement color variables
+$annoncentH: #ed5454;
+$annoncentM: $primary;
+$annoncentL: #789cff;
+
+// states
+$success-color: $primary;
+$success-icon: $primary;
+$success-background: #effcf6;
+$alert-success-color: #5be3a4;
+$error-color: #b06b6b;
+$error-icon: $primary;
+$warning-color: #997c47;
+$warning-light-color: #eecf7e;
+$warning-icon: $primary;
+$warning-background: #fdfaf2;
+
+// status
+$approved-color: $primary;
+$approved-background: #effcf6;
+$rejected-background: #f16b6b;
+$pending-color: #997c47;
+$pending-background: #fdfaf2;
+$info-color: #7e89a9;
+$info-icon: #789cff;
+$info-background: #c0ebf6;
+
+$shadow-card: $shadow-blue;
+
+//overlay
+$overlay-dark-color: rgba(29, 29, 27, 0.7);
+
+// gradient-color-variables
+$primary-light-gradient: linear-gradient(to top, $danger, $primary);
+$primary-light-right-gradient: linear-gradient(to right, $danger, $primary);
+$primary-gradient: linear-gradient(45deg, $primary-light, $primary);
+$primary-light-gradient: linear-gradient(45deg, $white, $primary-light);
+$secondary-gradient: linear-gradient(45deg, $yellow-900, $pending);
+$gradient-white: linear-gradient(to top, $white, $white);
+
+//dimensions
+$bp-sm-mobile-min: 320px;
+$bp-sm-mobile-max: 760px;
+$bp-lg-mobile-max-tablet-min: 768px;
+$bp-max-tablet: 992px;
+$bp-tablet-max: 1024px;
+$bp-desktop-min: 1200px;
+
+//margin
+$margin-top-neg-90: -90px;
+
+//padding
+$padding-xlarge: 5.5rem;
+$padding-large: 13rem;
+$padding-medium: 8rem;
+$padding-xmedium: 3rem;
+$padding-small: 3.5rem;
+$padding-xsmall: 0.5rem;
+$paddint-5rem: 5rem;
+
+// sidebar
+$side-bar-background: $primary;
+$side-bar-icon: $white;
+$side-bar-icon-active: $white;
+
+// footer
+$footer-background: $white;
+
+// custom colors
+$darkBlue: #01376a;
+$white-10: #f7f5fc;
+$white-20: #f0f3fa;
+$white-30: #f9f6f1;
+$lightBlue: #4f93d1;
+$lightBlue-100: #6586cd;
+$lightPurple: #777ac8;
+$gray-10: #3c3935;
+$gray-20: #979799;
+$gray-30: #333034;
+$gray-40: #212124;
+$gray-50: #51565b;
+$red-10: #f43459;
+$lightYellow: #c8b677;
+$lightYellow-10: #c8a977;
+$lightGreen: #7c9b90;
+$backGroundColor: rgb(151 151 153 / 16%);
+$backGroundColor-10: rgb(151 151 153 / 2%);
+$backGroundColor-20: rgba(0, 0, 0, 0);
+$backGroundColor-30: rgba(80, 147, 209, 0.08);
+$backGroundColor-40: rgba(101, 134, 205, 0.08);
+$backGroundColor-50: rgba(151, 151, 153, 0.5);
+
+:root {
+  --black: #{$black};
+  --primary-darker: #{$primary-darker};
+  --gray-700: #{$gray-700};
+  --gray-500: #{$gray-500};
+  --gray-300: #{$gray-300};
+  --red-50: #{$red-50};
+  --white: #{$white};
+  --white-50: #{$white-50};
+  --white-200: #{$white-200};
+  --white-500: #{$white-500};
+  --gray-100: #{$gray-100};
+  --primary: #{$primary};
+
+  --danger: #{$danger};
+
+  --rejected-color: #{$rejected-color};
+  --pending: #{$pending};
+  --yellow-600: #{$yellow-600};
+  --warning-light-color: #{$warning-light-color};
+
+  --yellow-900: #{$yellow-900};
+  --green: #{$green};
+  --green-700: #{$green-700};
+  --shadow-green: #{$shadow-green};
+  --shadow-light-blue: #{$shadow-light-blue};
+  --shadow-blue: #{$shadow-blue};
+  --shadow-black: #{$shadow-black};
+  --green-300: #{$green-300};
+
+  --primary-light: #{$primary-light};
+  --primary-light-gradient: #{$primary-light-gradient};
+  --primary-light-right-gradient: #{$primary-light-right-gradient};
+  --primary-gradient: #{$primary-gradient};
+  --secondary-gradient: #{$secondary-gradient};
+  --gradient-white: #{$gradient-white};
+
+  --box-shadow: #{$box-shadow};
+  --box-shadow-green: #{$box-shadow-green};
+  --box-shadow-10: #{$box-shadow-10};
+  --box-shadow-primary-light: #{$box-shadow-primary-light};
+  --box-shadow-black: #{$box-shadow-black};
+  --box-shadow-light: #{$box-shadow-light};
+  --box-shadow-light-blue: #{$box-shadow-light-blue};
+  --box-shadow-blue: #{$box-shadow-blue};
+  --box-shadow-blue-alpha: #{$box-shadow-blue-alpha};
+  --box-shadow-white: #{$box-shadow-white};
+  --box-shadow-6: #{$box-shadow-6};
+}

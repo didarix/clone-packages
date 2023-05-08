@@ -1,0 +1,31 @@
+<div #mydiv>
+  <div class="actions-img-container" (click)="op.toggle($event)" *validateActions="{rowData, actions}">
+    <img src="assets/svg-icon/more-icon.svg" alt="more" />
+  </div>
+  <p-overlayPanel #op dismissable="true" [appendTo]="mydiv" styleClass="panelStyles">
+    <ng-template pTemplate>
+      <ng-container *ngFor="let action of actions">
+        <p *ngIf="action.isDelete && validateAction(action, rowData)" class="action-label red-text"
+          (click)="closeAftersSelect(op); actionClick(action, rowData)">
+          {{
+          action.name
+          ? (action.name )
+          : ('TABLE.TOOLBAR.DELETE' )
+          }}
+        </p>
+        <p *ngIf="action.isEdit && validateAction(action, rowData)" class="action-label"
+          (click)="actionClick(action, rowData)">
+          {{
+          action.name
+          ? (action.name )
+          : ('TABLE.TOOLBAR.VIEW_EDIT' )
+          }}
+        </p>
+        <p *ngIf="validateCustomAction(action, rowData)" class="action-label" (click)="actionClick(action, rowData)">
+          <i [class]="action.icon"></i>
+          {{ action.name }}
+        </p>
+      </ng-container>
+    </ng-template>
+  </p-overlayPanel>
+</div>

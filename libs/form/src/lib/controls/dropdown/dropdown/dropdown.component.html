@@ -1,0 +1,108 @@
+<div class="dropdown-control-wrapper" [style.width.px]="to.width">
+  <div class="dropdown">
+    <p-dropdown
+      [options]="dropdownOptions | async"
+      [formControl]="formControl"
+      [formlyAttributes]="field"
+      [name]="key"
+      [inputId]="id"
+      [required]="to.required"
+      [style]="to.style"
+      [panelStyle]="to.panelStyle"
+      [styleClass]="to.styleClass"
+      [panelStyleClass]="to.panelStyleClass"
+      [optionValue]="to.optionValue || null"
+      [optionLabel]="to.labelPropertyName || 'name'"
+      [placeholder]="to.placeholder"
+      [disabled]="formControl.disabled"
+      [readonly]="to.readonly"
+      [filter]="to.filter"
+      [filterValue]="to.filterValue"
+      [filterBy]="to.filterBy"
+      [filterMatchMode]="to.filterMatchMode"
+      [filterPlaceholder]="to.filterPlaceholder"
+      [filterLocale]="to.filterLocale"
+      [resetFilterOnHide]="to.resetFilterOnHide"
+      [autofocusFilter]="to.autofocusFilter"
+      [emptyMessage]="to.emptyMessage || 'No records found.'"
+      [dataKey]="to.dataKey"
+      [emptyFilterMessage]="to.emptyFilterMessage || 'No records found.'"
+      [autofocus]="to.autofocus"
+      [autoDisplayFirst]="false"
+      [dropdownIcon]="to.dropdownIcon || 'pi pi-chevron-down'"
+      [showClear]="to.showClear"
+      [group]="to.group"
+      [optionGroupLabel]="to.optionGroupLabel || 'label'"
+      [optionGroupChildren]="to.optionGroupChildren || 'items'"
+      [showTransitionOptions]="
+        to.showTransitionOptions || '.12s cubic-bezier(0, 0, 0.2, 1)'
+      "
+      [hideTransitionOptions]="to.hideTransitionOptions || '.1s linear'"
+      [tooltip]="to.tooltip"
+      [tooltipStyleClass]="to.tooltipStyleClass"
+      [tooltipPosition]="to.tooltipPosition"
+      [tooltipPositionStyle]="to.tooltipPositionStyle || 'absolute'"
+      (onChange)="onSelectItem($event)"
+      (onFilter)="onFilter($event)"
+      (onClear)="onClear($event)"
+    >
+      <ng-template let-selectedOption pTemplate="selectedItem">
+        <div class="option option-value">
+          <ng-container
+            *ngTemplateOutlet="
+              to.selectedItemTemplate
+                ? to.selectedItemTemplate
+                : defaultTemplate;
+              context: { $implicit: selectedOption }
+            "
+          >
+          </ng-container>
+        </div>
+      </ng-template>
+
+      <ng-template let-option pTemplate="item">
+        <div class="option">
+          <ng-container
+            *ngTemplateOutlet="
+              to.itemTemplate ? to.itemTemplate : defaultTemplate;
+              context: { $implicit: option }
+            "
+          ></ng-container>
+        </div>
+      </ng-template>
+
+      <ng-template
+        let-group
+        pTemplate="group"
+        *ngIf="to.groupTemplate && to.group"
+      >
+        <ng-container
+          *ngTemplateOutlet="to.groupTemplate; context: { $implicit: group }"
+        ></ng-container>
+      </ng-template>
+    </p-dropdown>
+  </div>
+</div>
+
+<ng-template let-option #defaultTemplate>
+  <span>{{ option[to.labelPropertyName || 'name'] }}</span>
+</ng-template>
+
+<!--
+   How to use?
+
+   JSON Ex:->
+   {
+        className: '{yourClassName}',
+        wrappers: ['form-field'],
+        key: '{yourControlName}',
+        type: 'dropdown',
+        templateOptions: {
+            options: {yourDropdownOptions}, // list of the dropdown
+            labelPropertyName: 'name', // option label the naming key to bind from the backend
+            bindValue: '{optionPropertyName}', // the property of the option to bind with. it's optional.
+            width: '', // width of the dropdown. it's optional.
+            label: '' // dropdown label translate key. it's optional.
+        }
+    }
+-->

@@ -1,0 +1,13 @@
+<div class="link">
+    <div class="input-icon-container d-flex align-items-center justify-content-between gap-3">
+        <div class="input-container flex-grow-1">
+            <div class="link__body header-1 d-flex align-items-center">
+                <a [href]="to['value']" target="_blank"
+                    class="d-flex justify-content-between align-items-center w-100">
+                    <div class="value text-truncate">{{to['title']}}</div>
+                    <img *ngIf="to['showHyperlinkImg']" [src]="to['icon']||'assets/icons/auth/Hyperlink.png'" height="12" width="12">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
